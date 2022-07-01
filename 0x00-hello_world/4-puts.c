@@ -1,11 +1,10 @@
-#include <stdio.h>
-
+#include<stdio.h>
 /**
- * main - Entry point
- * print word to outout
- * Return: Zero Always
+ * main - Empty points
+ * pirnt word to outputs
+ * return: always 0 (success)
  */
-int main (void)
+int main(Void)
 {
 	puts("\"Programming is like building a multilingual puzzle");
 	return (0);
