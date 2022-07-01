@@ -5,7 +5,6 @@
  * print word to outout
  * Return: Zero Always
  */
-
 int main (void)
 {
 	puts("\"Programming is like building a multilingual puzzle");
