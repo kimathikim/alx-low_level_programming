@@ -1,8 +1,8 @@
 #include<stdio.h>
 /**
- * main - Empty points
- * pirnt word to outputs
- * return: always 0 (success)
+ * main - Entry point
+ * Description: print output
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
