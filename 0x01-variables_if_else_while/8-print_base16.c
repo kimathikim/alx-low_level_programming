@@ -14,6 +14,11 @@ int main(void)
 		putchar(a);
 		a++;
 	}
+	while (b <= 'f')
+	{
+		putchar(b);
+		b++;
+	}
 
 	putchar(10);
 
