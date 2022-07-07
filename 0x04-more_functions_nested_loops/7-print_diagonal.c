@@ -4,21 +4,20 @@
  *
  * @n: parameter
  *
- * Return: 0
+ * Return: return value
  */
 void print_diagonal(int n)
 {
 	int m = 0;
-	int i = 0;
+	int i;
 
 	if (n > 0)
 	{
 		while (m < n)
 		{
-			while (i < m)
+			for (i = 0; i < m; i++)
 			{
 				_putchar(32);
-				i++;
 			}
 			_putchar(92);
 			_putchar(10);
