@@ -8,25 +8,40 @@
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *comb;
-	int i;
-	unsigned int j;
+	char *a;
+	unsigned int x, n1 = 0, n2 = 0, i, j;
 
-	if (s1 == NULL)
+	if (s1 != NULL)
+	{
+		while (s1[n1] != 0)
+			n1++;
+	}
+	else
 		s1 = "";
-	if (s2 == NULL)
+	if (s2 != NULL)
+	{
+		while (s2[n2] != 0)
+			n2++;
+	}
+	else
 		s2 = "";
-	i = 0;
-	while (s1[i])
+	if (n < n2)
+		x = n;
+	else
+		x = n2;
+	a = malloc(sizeof(char) * (n1 + x + 1));
+
+	if (a == NULL)
+		return (NULL);
+	for (i = 0; i < n1; i++)
 	{
-		comb[i] = s1[i];
-		i++;
+		a[i] = s1[i];
 	}
-	for (j = 0; j < n && s2[j] != '\0'; j++)
+	for (j = 0; j < x; j++)
 	{
-		comb[i] = s2[j];
-		i++;
+		a[i + j] = s2[j];
 	}
-	comb[i] = '\0';
-	return (comb);
+	a[i + j] = 0;
+
+	return (a);
 }
