@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "list.h"
+#include "lists.h"
 
 /**
  * print_list - print all element of list
