@@ -10,7 +10,6 @@ int sum_them_all(const unsigned int n, ...)
 
 	va_list(num);
 	va_start(num, n);
-
 	i = n;
 	sum = 0;
 	if (n == 0)
