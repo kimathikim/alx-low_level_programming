@@ -44,5 +44,6 @@ void print_all(const char *const format, ...)
 		}
 		printf("\n");
 	}
+	printf("Provide valid format");
 	va_end(all);
 }
