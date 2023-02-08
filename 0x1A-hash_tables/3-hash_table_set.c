@@ -1,4 +1,5 @@
 #include "hash_tables.h"
+
 /**
  * hash_table_set - adds item in a hash table
  * @ht: the table
@@ -6,13 +7,16 @@
  * @value: value of the item
  * Return: 1 for success 0 for failure
  */
+
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int i;
 	hash_node_t *new, *tmp;
 
+	if (!ht || !key || !(*key))
+		return (0);
 	new = malloc(sizeof(*new));
-	if (!ht || !key || !(*key || !new))
+	if (!new)
 		return (0);
 	new->key = strdup((char *)key);
 	new->value = strdup(value);
@@ -21,29 +25,26 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (!(ht->array[i]))
 	{
 		ht->array[i] = new;
-		return (1);
 	}
 	else
 	{
+		/* check for update */
 		tmp = ht->array[i];
-		while (tmp)
+		while (tmp && strcmp(tmp->key, new->key) != 0)
+			tmp = tmp->next;
+		if (tmp) /* its update */
 		{
-			if (strcpy(tmp->key, new->key) != 0)
-				tmp = tmp->next;
-			else
-			{
-				free(tmp->value);
-				strcpy(tmp->value, new->value);
-				ht->array[i] = tmp;
-				free(tmp);
-			}
+			free(tmp->value);
+			tmp->value = new->value;
+			free(new->key);
+			free(new);
+			return (1);
 		}
-		free(new->key);
-		free(new);
-		return (1);
+		/* its a collision */
 		tmp = ht->array[i];
 		new->next = tmp;
 		ht->array[i] = new;
 	}
+
 	return (1);
 }
