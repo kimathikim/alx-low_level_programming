@@ -32,4 +32,4 @@ def island_perimeter(grid):
                     perimeter += 1
                 if (y + 1) == len(grid) or grid[y + 1][x] == water:
                     perimeter += 1
-return parameter
+    return perimeter
