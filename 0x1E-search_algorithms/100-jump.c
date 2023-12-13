@@ -10,29 +10,28 @@
  * Description: Prints a value every time it is compared in the array
  * using the Jump search algorithm
  */
-int jump_search(int *array, size_t size, int value) {
-  size_t head, tail, s_root, i;
-
-  head = 0;
-  s_root = sqrt(size);
-  tail = s_root;
-
-  while (tail < size) {
-    printf("Value checked array[%lu] = [%d]\n", head, array[head]);
-    if (array[tail] < value) {
-      head = tail;
-      tail = tail + s_root;
-    } else
-      break;
-  }
-  printf("value found between indexes [%lu] and [%lu]\n", head, tail);
-  if (tail > size)
-    tail = size - 1;
-  for (i = head; i <= tail; i++) {
-    printf("Value checked array[%lu] = [%d]\n", i, array[i]);
-    if (array[i] == value)
-      return (i);
-  }
-
-  return (-1);
+int jump_search(int *array, size_t size, int value)
+{
+	size_t start, end, step, i;
+	start = 0;
+	end = 0;
+	step = sqrt(size);
+	if (array == NULL)
+		return (-1);
+	while (end < size && array[end] < value)
+	{
+		printf("Value checked array[%lu] = [%d]\n", end, array[end]);
+		start = end;
+		end += step;
+	}
+	printf("Value found between indexes [%lu] and [%lu]\n", start, end);
+	if (end >= size)
+		end = size - 1;
+	for (i = start; i <= end; i++)
+	{
+		printf("Value checked array[%lu] = [%d]\n", i, array[i]);
+		if (array[i] == value)
+			return (i);
+	}
+	return (-1);
 }
