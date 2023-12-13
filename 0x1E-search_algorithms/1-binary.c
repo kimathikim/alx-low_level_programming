@@ -7,25 +7,23 @@
  * @value: value to search for
  * Return: index where value is located
  */
-int binary_search(int *array, size_t size, int value)
-{
-	size_t head = 0, tail = size - 1, i = 0;
+int binary_search(int *array, size_t size, int value) {
+  size_t head = 0, tail = size - 1, i = 0;
 
-	if (array == NULL)
-		return (-1);
-	while (head <= tail)
-	{
-		printf("Searching in array: ");
-		for (i = head; i < tail; i++)
-			printf("%d, ", array[i]);
-		printf("%d\n", array[i]);
-		i = (head + tail) / 2;
-		if (array[i] == value)
-			return (i);
-		else if (array[i] > value)
-			tail = i - 1;
-		else
-			head = i + 1;
-	}
-	return (-1);
+  if (array == NULL)
+    return (-1);
+  while (head <= tail) {
+    printf("Searching in array: ");
+    for (i = head; i < tail; i++)
+      printf("%d, ", array[i]);
+    printf("%d\n", array[i]);
+    i = (head + tail) / 2;
+    if (array[i] == value)
+      return (i);
+    else if (array[i] > value)
+      tail = i - 1;
+    else
+      head = i + 1;
+  }
+  return (-1);
 }
